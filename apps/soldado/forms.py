@@ -6,16 +6,16 @@ class ServicioForm(forms.ModelForm):
     class Meta:
         model = Servicio
 
-        fields = [
-            'descripcion',
-        ]
+        fields = "__all__"
 
         labels = {
-            'descripcion': 'Labels',
+            'id_servicio': 'ID del servicio',
+            'descripcion': 'Descripcion',
         }
 
         widgets = {
-            'descripcion': forms.TextInput(attrs={'class': 'form-class'})
+            'id_servicio': forms.TextInput(attrs={'class': 'form-control'}),
+            'descripcion': forms.TextInput(attrs={'class': 'form-control'}),
         }
 
 
@@ -50,9 +50,11 @@ class CuerpoForm(forms.ModelForm):
         fields = "__all__"
 
         labels = {
-            'denominacion',
+            'id_cuerpo': 'ID del cuerpo',
+            'denominacion': 'Denominacion',
         }
 
         widgets = {
+            'id_cuerpo': forms.TextInput(attrs={'class': 'form-control'}),
             'denominacion': forms.TextInput(attrs={'class': 'form-control'}),
         }

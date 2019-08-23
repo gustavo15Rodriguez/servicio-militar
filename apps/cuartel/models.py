@@ -2,7 +2,7 @@ from django.db import models
 from django.utils.translation import ugettext as _
 
 class Compania(models.Model):
-    id_compania = models.AutoField(primary_key=True)
+    id_compania = models.IntegerField(primary_key=True)
     actividad = models.CharField(max_length=40)
 
     def __str__(self):

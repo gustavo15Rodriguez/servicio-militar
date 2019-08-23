@@ -19,7 +19,7 @@ from reportlab.lib import colors
 class ReporteCuartelPDF(View):
 
     def cabecera(self, pdf):
-        archivo_imagen = settings.STATIC_ROOT+'/images/image_5.png'
+        archivo_imagen = settings.STATIC_ROOT+'/images/image_5.jpg'
         pdf.drawImage(archivo_imagen, 35, 750, 100, 90, preserveAspectRatio=True)
         pdf.setFont('Helvetica', 16)
         pdf.drawString(230, 790, u"SENA MAS TRABAJO")
@@ -48,6 +48,7 @@ class ReporteCuartelPDF(View):
             (
                 ('ALIGN', (0, 0), (3, 0), 'CENTER'),
                 ('GRID', (0, 0), (-1, -1), 1, colors.black),
+                # Corregir
                 ('FONTSIZE', (0, 0), (-1, -1), 10),
             )
         ))
@@ -87,6 +88,7 @@ class ReporteCompaniaPDF(View):
             (
                 ('ALIGN', (0, 0), (3, 0), 'CENTER'),
                 ('GRID', (0, 0), (-1, -1), 1, colors.black),
+                # Corregir tambien xdxd
                 ('FONTSIZE', (0, 0), (-1, -1), 10)
             )
         ))
@@ -100,21 +102,21 @@ class CreateCuartel(CreateView):
     model = Cuartel
     form_class = CuartelForm
     template_name = 'cuartel/cuartel_form.html'
-    success_url = reverse_lazy('cuartel:cuartel_listar')
+    success_url = reverse_lazy('cuartel_listar')
 
 
 class UpdateCuartel(UpdateView):
     model = Cuartel
     form_class = CuartelForm
     template_name = 'cuartel/cuartel_form.html'
-    success_url = reverse_lazy('cuartel:cuartel_listar')
+    success_url = reverse_lazy('cuartel_listar')
 
 
 class DeleteCuartel(DeleteView):
     model = Cuartel
     form_class = CuartelForm
     template_name = 'cuartel/cuartel_eliminar.html'
-    success_url = reverse_lazy('cuartel:cuartel_listar')
+    success_url = reverse_lazy('cuartel_listar')
 
 
 class ListCuartel(ListView):
@@ -129,21 +131,21 @@ class CreateCompania(CreateView):
     model = Compania
     form_class = CompaniaForm
     template_name = 'cuartel/compania_form.html'
-    success_url = reverse_lazy('cuartel:compania_listar')
+    success_url = reverse_lazy('compania_listar')
 
 
 class UpdateCompania(UpdateView):
     model = Compania
     form_class = CompaniaForm
     template_name = 'cuartel/compania_form.html'
-    success_url = reverse_lazy('cuartel:compania_listar')
+    success_url = reverse_lazy('compania_listar')
 
 
 class DeleteCompania(DeleteView):
     model = Compania
     form_class = CompaniaForm
     template_name = 'cuartel/compania_eliminar.html'
-    success_url = reverse_lazy('cuartel:compania_listar')
+    success_url = reverse_lazy('compania_listar')
 
 
 class ListCompania(ListView):

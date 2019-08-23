@@ -6,16 +6,16 @@ class CompaniaForm(forms.ModelForm):
     class Meta:
         model = Compania
 
-        fields = [
-            'actividad',
-        ]
+        fields = "__all__"
 
         labels = {
+            'id_compania': 'ID de la compañia',
             'actividad': 'Actividad',
         }
 
         widgets = {
-            'actividad': forms.TextInput(attrs={'class':'form-class'}),
+            'id_compania': forms.TextInput(attrs={'class':'form-control'}),
+            'actividad': forms.TextInput(attrs={'class':'form-control'}),
         }
 
 
@@ -35,6 +35,6 @@ class CuartelForm(forms.ModelForm):
         }
 
         widgets = {
-            'nombre': forms.TextInput(attrs={'class': 'form-class'}),
-            'direccion': forms.TextInput(attrs={'class': 'form-class'}),
+            'nombre': forms.TextInput(attrs={'class': 'form-control'}),
+            'direccion': forms.TextInput(attrs={'class': 'form-control'}),
         }

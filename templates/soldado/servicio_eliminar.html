@@ -3,10 +3,10 @@
 {% block content %}
     <form method="post">{% csrf_token %}
         <br>
-        <h3>Eliminar servicios</h3>
+        <h3 class="mb-3 mt-5 bread">Eliminar servicios</h3>
         <br>
         <p>Realmente desea eliminar el servicio {{ object.descripcion }}?</p>
         <button type="submit" class="btn btn-danger">Si, Eliminar</button>
-        <a href="#" class="btn btn-success">Cancelar</a>
+        <a href="{% url 'servicio_listar' %}" class="btn btn-success">Cancelar</a>
     </form>
 {% endblock content %}

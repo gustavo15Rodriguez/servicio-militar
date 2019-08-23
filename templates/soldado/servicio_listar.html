@@ -3,7 +3,7 @@
 {% block content %}
     <div class="container">
         <br>
-        <h3>Listar servicios</h3>
+        <h3 class="mb-3 mt-5 bread">Listar servicios</h3>
         <br>
         <table class="table table-hover">
             <thead>
@@ -20,8 +20,8 @@
                             <th scope="row">{{ servicio.id_servicio }}</th>
                             <td>{{ servicio.descripcion }}</td>
                             <td>
-                                <a href="#" class="btn btn-success">Editar</a>
-                                <a href="#" class="btn btn-danger">Eliminar</a>
+                                <a href="{% url 'servicio_editar' servicio.id_servicio %}" class="btn btn-success">Editar</a>
+                                <a href="{% url 'servicio_eliminar' servicio.id_servicio %}" class="btn btn-danger">Eliminar</a>
                             </td>
                         </tr>
                     {% endfor %}
@@ -29,14 +29,16 @@
                 <br>
                 <div class="container">
                     <h3>Aun no hay servicios registrados</h3>
-                    <a href="#" class="btn btn-primary">Agregar servcios</a>
+                    <a href="{% url 'servicio_crear' %}" class="btn btn-primary">Agregar servicios</a>
                 </div>
                 <br>
                 {% endif %}
             </tbody>
     </table>
     <br>
-    <a href="#" class="btn btn-success">Generar reporte → </a>
+    {%  if object_list %}
+        <a href="{% url 'reporte_servicio_pdf' %}" class="btn btn-success">Generar reporte → </a>
+    {% endif %}
     <br>
     </div>
 {% endblock content %}

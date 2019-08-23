@@ -3,10 +3,10 @@
 {% block content %}
     <form method="post">{% csrf_token %}
         <br>
-        <h3>Eliminar compañias</h3>
+        <h3 class="mb-3 mt-5 bread">Eliminar compañias</h3>
         <br>
         <p>Realmente desea eliminar la compañia con la actividad {{ object.actividad }}?</p>
         <button type="submit" class="bnt btn-danger">Si, Eliminar</button>
-        <a href="#" class="btn btn-success">Cancelar</a>
+        <a href="{% url 'compania_listar' %}" class="btn btn-success">Cancelar</a>
     </form>
 {% endblock content %}

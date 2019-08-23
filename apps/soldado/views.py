@@ -14,26 +14,24 @@ from reportlab.lib.units import cm
 from reportlab.lib import colors
 
 
-
 class CreateSoldado(CreateView):
     model = Soldado
     form_class = SoldadoForm
     template_name = 'soldado/soldado_form.html'
-    success_url = reverse_lazy('soldado:soldado_listar')
-
+    success_url = reverse_lazy('soldado_listar')
 
 class UpdateSoldado(UpdateView):
     model = Soldado
     form_class = SoldadoForm
     template_name = 'soldado/soldado_form.html'
-    success_url = reverse_lazy('soldado:soldado_listar')
+    success_url = reverse_lazy('soldado_listar')
 
 
 class DeleteSoldado(DeleteView):
     model = Soldado
     form_class = SoldadoForm
     template_name = 'soldado/soldado_eliminar.html'
-    success_url = reverse_lazy('soldado:soldado_listar')
+    success_url = reverse_lazy('soldado_listar')
 
 
 class ListSoldado(ListView):
@@ -48,21 +46,21 @@ class CreateServicio(CreateView):
     model = Servicio
     form_class = ServicioForm
     template_name = 'soldado/servicio_form.html'
-    success_url = reverse_lazy('soldado:servicio_listar')
+    success_url = reverse_lazy('servicio_listar')
 
 
 class UpdateServicio(UpdateView):
     model = Servicio
     form_class = ServicioForm
     template_name = 'soldado/servicio_form.html'
-    success_url = reverse_lazy('soldado:servicio_listar')
+    success_url = reverse_lazy('servicio_listar')
 
 
 class DeleteServicio(DeleteView):
     model = Servicio
     form_class = ServicioForm
     template_name = 'soldado/servicio_eliminar.html'
-    success_url = reverse_lazy('soldado:servicio_listar')
+    success_url = reverse_lazy('servicio_listar')
 
 
 class ListServicio(ListView):
@@ -78,21 +76,21 @@ class CreateCuerpo(CreateView):
     model = Cuerpo
     form_class = CuerpoForm
     template_name = 'soldado/cuerpo_form.html'
-    success_url = reverse_lazy('soldado:cuerpo_listar')
+    success_url = reverse_lazy('cuerpo_listar')
 
 
 class UpdateCuerpo(UpdateView):
     model = Cuerpo
     form_class = CuerpoForm
     template_name = 'soldado/cuerpo_form.html'
-    success_url = reverse_lazy('soldado:cuerpo_listar')
+    success_url = reverse_lazy('cuerpo_listar')
 
 
 class DeleteCuerpo(DeleteView):
     model = Cuerpo
     form_class = CuerpoForm
     template_name = 'soldado/cuerpo_eliminar.html'
-    success_url = reverse_lazy('soldado:cuerpo_listar')
+    success_url = reverse_lazy('cuerpo_listar')
 
 
 class ListCuerpo(ListView):
@@ -173,6 +171,7 @@ class ReporteServicioPDF(View):
             (
                 ('ALIGN', (0, 0), (3, 0), 'CENTER'),
                 ('GRID', (0, 0), (-1, -1), 1, colors.black),
+                # Corregir tambien .. ashhh
                 ('FONTSIZE', (0, 0), (-1, -1), 10),
             )
         ))
@@ -212,6 +211,7 @@ class ReporteCuerpoPDF(View):
             (
                 ('ALIGN', (0, 0), (3, 0), 'CENTER'),
                 ('GRID', (0, 0), (-1, -1), 1, colors.black),
+                # No joda, tambien corregir, pero no se que
                 ('FONTSIZE', (0, 0), (-1, -1), 10),
             )
         ))

@@ -3,7 +3,7 @@
 {% block content %}
     <div class="container-fluid">
         <br>
-        <h3>Listar soldados</h3>
+        <h3 class="mb-3 mt-5 bread">Listar soldados</h3>
         <br>
         <table class="table table-hover">
             <thead>
@@ -15,7 +15,9 @@
                     <th scope="col">Servicio</th>
                     <th scope="col">Cuerpo</th>
                     <th scope="col">Compañia</th>
-                    <th scope="col">Acciones</th>
+                    {% if perms.soldado.is_dos %}
+                        <th scope="col">Acciones</th>
+                    {% endif %}
                 </tr>
             </thead>
             <tbody>
@@ -30,8 +32,10 @@
                             <td>{{ soldado.cuerpo }}</td>
                             <td>{{ soldado.compania }}</td>
                             <td>
-                                <a href="#" class="btn btn-success">Editar</a>
-                                <a href="#" class="btn btn-danger">Eliminar</a>
+                                {% if perms.soldado.is_dos %}
+                                    <a href="{% url 'soldado_editar' soldado.id_soldado %}" class="btn btn-success">Editar</a>
+                                    <a href="{% url 'soldado_eliminar' soldado.id_soldado %}" class="btn btn-danger">Eliminar</a>
+                                {% endif %}
                             </td>
                         </tr>
                     {% endfor %}
@@ -39,14 +43,18 @@
                 <br>
                 <div class="container-fluid">
                     <h3>Aun no hay soldados registrados</h3>
-                    <a href="#" class="btn btn-primary">Agregar soldados</a>
+                    {% if perms.soldado.is_dos %}
+                        <a href="{% url 'soldado_crear' %}" class="btn btn-primary">Agregar soldados</a>
+                    {% endif %}
                 </div>
                 <br>
                 {% endif %}
             </tbody>
     </table>
     <br>
-    <a href="#" class="btn btn-success">Generar reporte → </a>
+    {% if  object_list %}
+        <a href="{% url 'reporte_soldado_pdf' %}" class="btn btn-success">Generar reporte → </a>
+    {% endif %}
     <br>
     </div>
 {% endblock content %}

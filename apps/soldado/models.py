@@ -3,14 +3,14 @@ from apps.cuartel.models import Compania, Cuartel
 from django.utils.translation import ugettext as _
 
 class Servicio(models.Model):
-    id_servicio = models.AutoField(primary_key=True)
+    id_servicio = models.IntegerField(primary_key=True)
     descripcion = models.CharField(max_length=40)
 
     def __str__(self):
         return '{}'.format(self.descripcion)
 
 class Cuerpo(models.Model):
-    id_cuerpo = models.AutoField(primary_key=True)
+    id_cuerpo = models.IntegerField(primary_key=True)
     denominacion = models.CharField(max_length=40)
 
     def __str__(self):

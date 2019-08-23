@@ -39,33 +39,38 @@
           </div>
         </div>
     		<div class="row">
-    			<div class="col-md-4">
-    				<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url({% static 'images/project-4.jpg' %});">
-    					<div class="overlay"></div>
-    					<a href="#" class="btn-site d-flex align-items-center justify-content-center"><span class="icon-subdirectory_arrow_right"></span></a>
-	    				<div class="text text-center p-4">
-	    					<h3><a href="#">Añadir soldados</a></h3>
-	    					<span>Nuestros servicios</span>
-	    				</div>
-    				</div>
-  				</div>
-  				<div class="col-md-8">
-    				<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url({% static 'images/project-5.jpg' %});">
-    					<div class="overlay"></div>
-    					<a href="#" class="btn-site d-flex align-items-center justify-content-center"><span class="icon-subdirectory_arrow_right"></span></a>
-	    				<div class="text text-center p-4">
-	    					<h3><a href="#">Añadir cuarteles</a></h3>
-	    					<span>Nuestros servicios</span>
-	    				</div>
-    				</div>
-  				</div>
+    			{% if perms.soldado.is_dos %}
+                    <div class="col-md-4">
+    				    <div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url({% static 'images/project-4.jpg' %});">
+                            <div class="overlay"></div>
+                                <a href="#" class="btn-site d-flex align-items-center justify-content-center"><span class="icon-subdirectory_arrow_right"></span></a>
+                                <div class="text text-center p-4">
+                                    <h3><a href="{% url 'soldado_crear' %}">Añadir soldados</a></h3>
+                                    <span>Nuestros servicios</span>
+	    				        </div>
+    				        </div>
+  				    </div>
+                {% endif %}
+
+                {% if perms.cuartel.is_uno %}
+                    <div class="col-md-8">
+                        <div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url({% static 'images/project-5.jpg' %});">
+                            <div class="overlay"></div>
+                            <a href="#" class="btn-site d-flex align-items-center justify-content-center"><span class="icon-subdirectory_arrow_right"></span></a>
+                            <div class="text text-center p-4">
+                                <h3><a href="{% url 'cuartel_crear' %}">Añadir cuarteles</a></h3>
+                                <span>Nuestros servicios</span>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
 
     			<div class="col-md-8">
     				<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url({% static 'images/project-1.jpg' %});">
     					<div class="overlay"></div>
     					<a href="#" class="btn-site d-flex align-items-center justify-content-center"><span class="icon-subdirectory_arrow_right"></span></a>
 	    				<div class="text text-center p-4">
-	    					<h3><a href="#">Añadir compañias</a></h3>
+	    					<h3><a href="{% url 'compania_crear' %}">Añadir compañias</a></h3>
 	    					<span>Nuestros servicios</span>
 	    				</div>
     				</div>
@@ -74,7 +79,7 @@
     					<div class="overlay"></div>
     					<a href="#" class="btn-site d-flex align-items-center justify-content-center"><span class="icon-subdirectory_arrow_right"></span></a>
 	    				<div class="text text-center p-4">
-	    					<h3><a href="#">Añadir cuerpos</a></h3>
+	    					<h3><a href="{% url 'cuerpo_crear' %}">Añadir cuerpos</a></h3>
 	    					<span>Nuestros servicios</span>
 	    				</div>
     				</div>
@@ -86,7 +91,7 @@
 		    					<div class="overlay"></div>
 		    					<a href="#" class="btn-site d-flex align-items-center justify-content-center"><span class="icon-subdirectory_arrow_right"></span></a>
 			    				<div class="text text-center p-4">
-			    					<h3><a href="#">Añadir cuarteles</a></h3>
+			    					<h3><a href="{% url 'servicio_crear' %}">Añadir servicios</a></h3>
 			    					<span>Nuestros servicios</span>
 			    				</div>
 		    				</div>
@@ -98,7 +103,7 @@
     	</div>
     </section>
 
-    <section class="hero-wrap hero-wrap-2 d-flex" id="listar">
+    <section class="ftco-section ftco-project" id="listar">
       <div class="col-md-12">
           {% block content%}
           {% endblock content%}

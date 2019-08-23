@@ -3,7 +3,7 @@
 {% block content %}
     <div class="container">
         <br>
-        <h3>Listar cuerpos</h3>
+        <h3 class="mb-3 mt-5 bread">Listar cuerpos</h3>
         <br>
         <table class="table table-hover">
             <thead>
@@ -20,8 +20,8 @@
                             <th scope="row">{{ cuerpo.id_cuerpo }}</th>
                             <td>{{ cuerpo.denominacion }}</td>
                             <td>
-                                <a href="#" class="btn btn-success">Editar</a>
-                                <a href="#" class="btn btn-danger">Eliminar</a>
+                                <a href="{% url 'cuerpo_editar' cuerpo.id_cuerpo %}" class="btn btn-success">Editar</a>
+                                <a href="{% url 'cuerpo_eliminar' cuerpo.id_cuerpo %}" class="btn btn-danger">Eliminar</a>
                             </td>
                         </tr>
                     {% endfor %}
@@ -29,14 +29,16 @@
                 <br>
                 <div class="container">
                     <h3>Aun no hay cuerpos registrados</h3>
-                    <a href="#" class="btn btn-primary">Agregar cuerpos</a>
+                    <a href="{% url 'cuerpo_crear' %}" class="btn btn-primary">Agregar cuerpos</a>
                 </div>
                 <br>
                 {% endif %}
             </tbody>
     </table>
     <br>
-    <a href="#" class="btn btn-success">Generar reporte → </a>
+    {% if  object_list %}
+        <a href="{% url 'reporte_cuerpo_pdf' %}" class="btn btn-success">Generar reporte → </a>
+    {% endif %}
     <br>
     </div>
 {% endblock content %}

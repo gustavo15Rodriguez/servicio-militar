@@ -63,7 +63,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'servicioMilitar.urls'
 
-#LOGIN_REDIRECT_URL = reverse_lazy('')
+LOGIN_REDIRECT_URL = reverse_lazy('soldado_listar')
 LOGOUT_REDIRECT_URL = ('index')
 
 TEMPLATES = [

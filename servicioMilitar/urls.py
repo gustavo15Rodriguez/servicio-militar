@@ -17,16 +17,17 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.conf.urls import url, include
-from django.contrib.auth.views import logout_then_login,PasswordResetView, PasswordResetDoneView, PasswordResetCompleteView, PasswordResetConfirmView
 
+from django.contrib.auth.views import LoginView, logout_then_login,PasswordResetView, PasswordResetDoneView, PasswordResetCompleteView, PasswordResetConfirmView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^home/', include('apps.principal.urls')),
-    url(r'^soldado/', include('apps.soldado.urls', namespace='soldado')),
-    url(r'^cuartel/', include('apps.cuartel.urls', namespace='cuartel')),
+    url(r'^soldado/', include('apps.soldado.urls')),
+    url(r'^cuartel/', include('apps.cuartel.urls')),
     url(r'^logout/', logout_then_login, name='logout'),
     url(r'^registro/', include('apps.usuarios.urls')),
+    url(r'^accounts/login/', LoginView.as_view(template_name='index.html'), name='login'),
 
     url(r'^password_reset/', PasswordResetView.as_view(), name='password_reset'),
     url(r'^password_reset/done/', PasswordResetDoneView.as_view(), name='password_reset_done'),

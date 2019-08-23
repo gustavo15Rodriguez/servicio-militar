@@ -1,12 +1,14 @@
 {% extends 'base/funciones.html' %}
 
 {% block content %}
-    <form method="post">{% csrf_token %}
-        <br>
-        <h3>Crear soldados</h3>
-        <br>
-        {{  form.as_p }}
-        <button type="submit" class="btn btn-primary">Guardar</button>
-        <a href="#" class="btn btn-success">Listar soldados</a>
-    </form>
+    <div class="container">
+        <form method="post">{% csrf_token %}
+            <br>
+            <h3 class="mb-3 mt-5 bread">Crear soldados</h3>
+            <br>
+            {{  form.as_p }}
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <a href="{% url 'soldado_listar' %}" class="btn btn-success">Listar soldados</a>
+        </form>
+    </div>
 {% endblock content %}
