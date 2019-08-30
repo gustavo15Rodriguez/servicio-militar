@@ -28,7 +28,6 @@ class Soldado(models.Model):
     def __str__(self):
         return '{} {}'.format(self.nombre, self.apellido)
 
-
     class Meta:
         permissions = {
             ('is_dos', _('Usuario Dos')),

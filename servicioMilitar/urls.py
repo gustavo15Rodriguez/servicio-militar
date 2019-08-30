@@ -29,8 +29,8 @@ urlpatterns = [
     url(r'^registro/', include('apps.usuarios.urls')),
     url(r'^accounts/login/', LoginView.as_view(template_name='index.html'), name='login'),
 
-    url(r'^password_reset/', PasswordResetView.as_view(), name='password_reset'),
     url(r'^password_reset/done/', PasswordResetDoneView.as_view(), name='password_reset_done'),
+    url(r'^password_reset/', PasswordResetView.as_view(), name='password_reset'),
     url(r'^reset/(?P<uidb64>[0-9A-Za-z_ \-]+)/(?P<token>.+)/', PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
     url(r'^reset/done/', PasswordResetCompleteView.as_view(), name='password_reset_complete'),
 ]

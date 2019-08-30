@@ -26,7 +26,7 @@ class ReporteCuartelPDF(View):
         pdf.setFont('Helvetica', 14)
         pdf.drawString(230, 750, u"REPORTE DE CUARTELES")
 
-    def get(self, request):
+    def get(self, request, *args, **kwargs):
         response = HttpResponse(content_type='application/pdf')
         buffer = BytesIO()
         pdf = canvas.Canvas(buffer)

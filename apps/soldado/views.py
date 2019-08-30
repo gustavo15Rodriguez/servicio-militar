@@ -104,18 +104,18 @@ class ReporteSoldadoPDF(View):
 
     def cabecera(self, pdf):
         archivo_imagen = settings.STATIC_ROOT+'/images/image_5.jpg'
-        pdf.drawImage(archivo_imagen, 35, 750, 100, 90, preserveAspectRatio=True)
+        pdf.drawImage(archivo_imagen, 35, 730, 100, 90, preserveAspectRatio=True)
         pdf.setFont('Helvetica', 16)
         pdf.drawString(230, 790, u"SENA MAS TRABAJO")
         pdf.setFont('Helvetica', 14)
-        pdf.drawString(230, 750, u"REPORTE DE SOLDADOS")
+        pdf.drawString(228, 750, u"REPORTE DE SOLDADOS")
 
     def get(self, request):
         response = HttpResponse(content_type='application/pdf')
         buffer = BytesIO()
         pdf = canvas.Canvas(buffer)
         self.cabecera(pdf)
-        y = 550
+        y = 600
         self.tabla(pdf, y)
         pdf.showPage()
         pdf.save()
@@ -127,7 +127,7 @@ class ReporteSoldadoPDF(View):
     def tabla(self, pdf, y):
         encabezado = ('Nombre', 'Apellido', 'Grado', 'Servicio', 'Compañia')
         detalle = [(soldado.nombre, soldado.apellido, soldado.grado, soldado.servicio, soldado.compania) for soldado in Soldado.objects.all()]
-        detalle_orden = Table([encabezado] + detalle, colWidths=[3 * cm, 3 * cm, 3 * cm, 3 * cm])
+        detalle_orden = Table([encabezado] + detalle, colWidths=[3.3 * cm, 3.3 * cm, 3.3 * cm, 3.3 * cm])
         detalle_orden.setStyle(TableStyle(
             (
                 ('ALIGN', (0, 0), (3, 0), 'CENTER'),

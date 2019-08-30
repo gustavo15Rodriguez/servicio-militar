@@ -18,7 +18,6 @@ class ServicioForm(forms.ModelForm):
             'descripcion': forms.TextInput(attrs={'class': 'form-control'}),
         }
 
-
 class SoldadoForm(forms.ModelForm):
     class Meta:
         model = Soldado
